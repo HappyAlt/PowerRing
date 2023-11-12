@@ -8,8 +8,8 @@ export function Main(){
     
     const [chosens, setChosens] = useState<number[]>([])
 
-    function click(ID:number){
-        const FIndex = chosens.findIndex(chosen => chosen == ID)
+    function addOrRemoveChosen(ID:number){
+        const FIndex = chosens.findIndex(item => item == ID)
         if(FIndex != -1){
             const temp = [... chosens]
 
@@ -24,11 +24,11 @@ export function Main(){
     return (
         <div className='main'>
             <div className='DisplayProducts'>
-                {products.map( item => <Product key={item.ID} product={item} click={click}/>)}
+                {products.map( item => <Product key={item.ID} product={item} click={addOrRemoveChosen}/>)}
             </div>
 
             <div className='ChosenProducts'>
-                {products.filter(product => chosens.includes(product.ID)).map( item => <Product key={item.ID} product={item} click={click}/>)}
+                {products.filter(product => chosens.includes(product.ID)).map( item => <Product key={item.ID} product={item} click={addOrRemoveChosen}/>)}
             </div>
         </div>
     )
