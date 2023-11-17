@@ -4,3 +4,8 @@ export interface ProductProps {
     price: number;
     ID:number;
 }
+
+export interface ProductsComProps {
+    product:ProductProps,
+    click: (e:number) => void,
+}

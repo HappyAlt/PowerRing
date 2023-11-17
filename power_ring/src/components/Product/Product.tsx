@@ -1,11 +1,5 @@
-import React from 'react';
 import './Product.css';
-import { ProductProps } from '../models/productmodel';
-
-interface ProductsComProps {
-    product:ProductProps,
-    click: (e:number) => void
-}
+import { ProductProps, ProductsComProps } from '../../models/productmodel';
 
 export function Product(props: ProductsComProps){
 
