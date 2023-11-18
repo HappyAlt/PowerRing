@@ -1,13 +1,16 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Product } from '../../components/Product/Product';
 import { products } from '../../data/Data';
 import { ChosenProducts } from '../../components/ChosenProducts/ChosenProducts';
+import { GContext } from '../../contexts/gcontext';
 
 import './main.css';
 
 export function Main(){
     
-    const [chosens, setChosens] = useState<number[]>([])
+    // const [chosens, setChosens] = useState<number[]>([])
+
+    const {chosens, setChosens} = useContext(GContext)
 
     function addChosen(ID:number){
         const FIndex = chosens.findIndex(item => item == ID)

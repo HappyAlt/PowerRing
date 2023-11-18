@@ -3,6 +3,7 @@ export interface ProductProps {
     image: string;
     price: number;
     ID:number;
+    quantity:number
 }
 
 export interface ProductsComProps {
