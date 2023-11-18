@@ -1,6 +1,7 @@
 import './App.css';
 import { Main } from '../main/main';
 import { About } from '../about/about';
+import { Cart } from '../cart/cart';
 import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
 import GProvider from '../../contexts/gcontext';
 
@@ -19,7 +20,8 @@ function App() {
           <main>
             <Routes>
               <Route index element={<Main/>} />
-              <Route path='/About/' element={<About/>} /> 
+              <Route path='/About/' element={<About/>} />
+              <Route path='/Cart/' element={<Cart/>}/>
             </Routes>
           </main>
         </div>
