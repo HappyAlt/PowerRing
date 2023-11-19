@@ -9,20 +9,18 @@ import './main.css';
 
 export function Main(){
     
-    // const [chosens, setChosens] = useState<number[]>([])
-
     const {chosens, setChosens} = useContext(GContext)
 
     function addChosen(ID:number){
-        const FIndex = chosens.findIndex(item => item == ID)
+        const FIndex = chosens.findIndex(item => item.ID == ID)
         
         if(FIndex == -1){
-            setChosens([... chosens,ID])
+            setChosens([... chosens,{ID,Qnt:1}])
         }
     }
 
     function removeChosen(ID:number){
-        const FIndex = chosens.findIndex(item => item == ID)
+        const FIndex = chosens.findIndex(item => item.ID == ID)
         if(FIndex != -1){
             const temp = [... chosens]
 
@@ -38,7 +36,7 @@ export function Main(){
             </div>
 
             <div className='ChosenProducts'>
-                {products.filter(product => chosens.includes(product.ID)).map( item => <ChosenProducts key={item.ID} product={item} click={removeChosen}/>)}
+                {products.filter(product => chosens.some(item => item.ID == product.ID)).map( item => <ChosenProducts key={item.ID} product={item} click={removeChosen}/>)}
                 <Link to='/Cart/'><button></button></Link>
             </div>
         </div>
